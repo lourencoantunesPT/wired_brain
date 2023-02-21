@@ -70,8 +70,18 @@ class Flight:
     def num_available_seats(self):
         return sum( sum (1 for s in row.values() if s is None) for row in self._seating if row is not None)
 
+    def make_boarding_cards(self,card_printer):
+        for passageiro, cadeira in sorted (self._passenger_seats()):
+            card_printer(passageiro, cadeira, self.number(), self.aircraft_model())
 
-
+    def _passenger_seats(self):
+        """ um gerador sobre o seatingplan() que devole tuplo passageiro,lugar"""
+        row_numbers, seat_letters = self._aircraft.seating_plan()
+        for row in row_numbers:
+            for letter in seat_letters:
+                passenger = self._seating[row][letter]
+                if passenger is not None:
+                    yield (passenger, f"{row}{letter}")
 
 class Aircraft:
     def __init__(self, registration, model, num_rows, num_seats_per_row):
@@ -88,4 +98,22 @@ class Aircraft:
 
     def seating_plan(self):
         return (range(1, self._num_rows + 1), "ABCDEFGHJK"[:self._num_seats_per_row])
+
+
+###########################################################################################
+####################### SECCAO FORA DAS CLASSES            ################################
+###########################################################################################
+def console_card_printer(passageiro, seat, flight_num, aircraft):
+    """ funcao que imprime 1 cartao de embarque de 1 passageiro num voo"""
+    output =    f"| Name: {passageiro}"     \
+                f"  Flight: {flight_num}"   \
+                f"  Seat: {Seat}"           \
+                f" Aircraft: {aircraft}"    \
+                "  |"
+    banner = "+" + "-" * (len(output) - 2) + "+"
+    border = "|" + " " * (len(output) - 2) + "|"
+    lines = [banner, border, output, border, banner]
+    card = "\n".join(lines)
+    print(card)
+    print()
 
