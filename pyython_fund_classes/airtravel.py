@@ -103,11 +103,11 @@ class Aircraft:
 ###########################################################################################
 ####################### SECCAO FORA DAS CLASSES            ################################
 ###########################################################################################
-def console_card_printer(passageiro, seat, flight_num, aircraft):
+def console_card_printer(passageiro, lugar, flight_num, aircraft):
     """ funcao que imprime 1 cartao de embarque de 1 passageiro num voo"""
     output =    f"| Name: {passageiro}"     \
                 f"  Flight: {flight_num}"   \
-                f"  Seat: {Seat}"           \
+                f"  Seat: {lugar}"           \
                 f" Aircraft: {aircraft}"    \
                 "  |"
     banner = "+" + "-" * (len(output) - 2) + "+"

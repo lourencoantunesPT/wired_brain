@@ -43,5 +43,5 @@ print(f.num_available_seats())
 
 
 print ("################ IMPRESSO DOS CARTOS DE EMBARQUE DE UM VOO")
-f.make_boarding_cards(airtravel.console_card_printer())
+#f.make_boarding_cards(airtravel.console_card_printer())
 
