@@ -3,11 +3,11 @@
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 #EcbMode | CbcMode | CfbMode | OfbMode | CtrMode | OpenPgpMode | CcmMode | EaxMode | GcmMode | SivMode | OcbMode
-
 from Crypto.Util.Padding import pad, unpad
 
-data = b'secret data is bigger now because i invented some more text.'
-data = b'ola'
+
+data = b'secret data is bigger now because i invented some more text.123'
+#data = b'ola'
 key = get_random_bytes(16)
 
 print('\n\n\n')
