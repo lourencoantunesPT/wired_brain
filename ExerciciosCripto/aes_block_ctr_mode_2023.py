@@ -2,12 +2,12 @@
 
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
-from binascii import hexlify as hexa
-from os import urandom
+#EcbMode | CbcMode | CfbMode | OfbMode | CtrMode | OpenPgpMode | CcmMode | EaxMode | GcmMode | SivMode | OcbMode
 
 
 data = b'secret data is bigger now because i invented some more text.'
-key = urandom(16)
+data = b'ola'
+key = get_random_bytes(16)
 
 print('--- AES - CTR mode ---------')
 print('\n')
