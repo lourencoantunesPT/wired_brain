@@ -7,4 +7,5 @@ fn main() {
     println!("Can board plane: {}", can_board);
 
     println!("Hello, world!");
+
 }
